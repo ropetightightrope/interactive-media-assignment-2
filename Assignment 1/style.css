@@ -1,0 +1,96 @@
+h1{
+font-size: clamp(1.8rem, calc(7vw + 1.8rem), 6rem);
+
+
+}
+
+
+
+body{
+    background-color: blueviolet;
+    padding: min(5em, 8%);
+    min-height: 777px;
+    border: 10px solid rgb(255, 0, 0);
+    gap: 33px;
+
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+
+
+}
+
+.box{
+    flex-shrink: 1;
+    flex-grow: 1;
+    max-width: 333;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    width: 200px; 
+    
+    background-color: black;
+    font-size: 2rem;
+    perspective: 1000px;
+    text-emphasis-color: white;
+    color: aliceblue;
+    justify-content: center;
+    cursor: pointer;
+    transition: 150ms ease;
+    border-color: aqua;
+    /* transition-property:width;
+    transition-duration: 3343ms;
+    transition-timing-function:cubic-bezier(.58,-0.57,.86,.01));
+    transition-delay:150ms ; */
+    animation-name: spin;
+    animation-duration: 3333ms;
+    animation-fill-mode: infinite;
+    animation-play-state:running;
+
+}
+
+.box:hover{
+    animation-play-state:paused ;
+    width: 400px;
+    height: 400px;
+    transform: rotateX(45deg angle);
+    transform: rotateY(45deg  angle);
+    transform: rotateZ(180deg angle);
+
+}
+    
+@keyframes spin {
+    0%{
+
+    }  
+    
+    13%{
+        scale: 2;
+        rotate;
+
+    }
+    33%{
+        scale: -1;
+    }
+
+    66%{
+        scale: 2;
+    } 
+
+    
+    100%{
+        transform: rotateX('angle') rotateY('720deg ')
+        );
+        border-radius: 20%;
+        scale: 0.5em;
+    }
+}
+
+
+
+
+
+
