@@ -43,7 +43,7 @@ h1{
     }
     
     .box{
-        flex-shrink: 1;
+        flex-shrink: 1; 
         flex-grow: 2;
         flex-direction: column-reverse;
         max-width: 3344px;
