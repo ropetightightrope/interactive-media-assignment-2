@@ -1,0 +1,81 @@
+CSS
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+      width: 100%;
+      height: 100%;
+      background: black;
+      overflow: hidden;
+    }
+  
+    .fixed-canvas {
+      width: 1420px;
+      height: 980px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+    }
+  
+    .bg-img {
+      width: 1420px;
+      height: 980px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  
+    .bg-img {
+    width: 1420px;
+    height: 980px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    object-fit: cover;
+    filter: blur(1px);
+
+  }
+  
+  .bg-wrapper {
+    position: absolute;
+    width: 1420px;
+    height: 980px;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .bg-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, black 0%, transparent 10%, transparent 90%, black 100%);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  
+  
+    .mouth-video {
+      position: fixed;
+      top: 312px;  
+      left: 420px; 
+      width: 580px;
+      height: 100px;
+      z-index: 1;
+      border: none;
+      background: transparent;
+    }
+
+
+/* Video and Image by Han,
+ Sound by Santino Castagna */
+    
