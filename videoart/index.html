@@ -1,38 +1,33 @@
-HTML:
-<!-- I decided to start from scratch because of the non traditional context of video art in a vacuum. 
-
--->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>mouth</title>
-  <link rel="stylesheet" href="style.css" />
-
-</head>
-<body>
-  
-  
-<head>
-<!-- <link rel="icon" type="imag/x-icon"
-href="/images/favicon.ico"> -->
- 
-</head>
-
-    <div class="fixed-canvas">
-        <div class="bg-wrapper">
-          <img src="mouth opening.png" alt="background" class="bg-img">
-        </div>
-        <video src="mouth.mp4" autoplay loop muted class="mouth-video"></video>
-        <audio src="mouth.mp3" autoplay loop muted type="audio/mpeg"></audio> ></audio>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mouth</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="fixed-canvas" id="videoContainer">
+      <div class="bg-wrapper" id="bgWrapper">
+        <img
+          src="mouth opening.png"
+          alt="background"
+          class="bg-img"
+          id="bgImage"
+        />
       </div>
 
-<!-- For the interface I wanted it to be as clean and minimalist
-  as possible with only a mute control and a full screen option
-  but I didn't want any UI to distract from the piece so 
-  I implimented just a click to unmute and a doubleclick to full screen -->
- 
+      <div class="video-wrapper">
+        <video id="mouthVideo" src="mouth.mp4" class="mouth-video"></video>
+        <div class="mute-toggle" id="muteToggle"></div>
+      </div>
 
-</body>
+      <div class="video-controls" id="videoControls">
+        <button id="playBtn"></button>
+        <button id="fullscreenBtn">⛶</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
