@@ -86,16 +86,20 @@ document.addEventListener("wheel", (e) => {
 // ==== INITIALIZATION ====
 // Sets autoplay/muted/loop to match UX goals.
 // Audio autoplay is blocked by browser unless user interacts.
-video.autoplay = true;
-video.muted = true;
-video.playsInline = true;
-video.load();
-video.play().catch(() => {}); // silent catch if blocked
+document.body.addEventListener(
+  "click",
+  () => {
+    video.muted = false;
+    audio.muted = false;
 
-audio.muted = true;
-audio.loop = true;
-audio.load();
+    video.play().catch((err) => console.warn("Video play failed:", err));
+    audio.play().catch((err) => console.warn("Audio play failed:", err));
 
+    updateMuteIcon();
+  },
+  { once: true }
+);
+// Trigger only once
 // ==== POP-UP WARNING LOGIC ====
 // Warns user about high volume and prompts interaction.
 // Unlocks audio/video playback after first click.
