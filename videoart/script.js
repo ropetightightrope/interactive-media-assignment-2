@@ -1,4 +1,5 @@
 const video = document.getElementById("mouthVideo");
+const audio = document.getElementById("mouthAudio");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 const muteToggle = document.getElementById("muteToggle");
 const playBtn = document.getElementById("playBtn");
@@ -27,15 +28,14 @@ function updateMuteIcon() {
   }
 }
 
-muteToggle.addEventListener("click", () => {
+function toggleMute() {
   video.muted = !video.muted;
+  audio.muted = video.muted;
   updateMuteIcon();
-});
+}
 
-video.addEventListener("click", () => {
-  video.muted = !video.muted;
-  updateMuteIcon();
-});
+muteToggle.addEventListener("click", toggleMute);
+video.addEventListener("click", toggleMute);
 
 // === PLAY/PAUSE ===
 function updatePlayIcon() {
@@ -49,14 +49,22 @@ function updatePlayIcon() {
 playBtn.addEventListener("click", () => {
   if (video.paused) {
     video.play();
+    audio.play();
   } else {
     video.pause();
+    audio.pause();
   }
   updatePlayIcon();
 });
 
-video.addEventListener("play", updatePlayIcon);
-video.addEventListener("pause", updatePlayIcon);
+video.addEventListener("play", () => {
+  audio.play();
+  updatePlayIcon();
+});
+video.addEventListener("pause", () => {
+  audio.pause();
+  updatePlayIcon();
+});
 
 // === SCROLL = BLUR ===
 document.addEventListener("wheel", (e) => {
@@ -64,8 +72,13 @@ document.addEventListener("wheel", (e) => {
   bgImage.style.filter = `blur(${blur}px)`;
 });
 
+// === INIT ===
 video.autoplay = true;
 video.muted = true;
 video.playsInline = true;
 video.load();
-video.play().catch(() => {}); // autoplay
+video.play().catch(() => {});
+
+audio.muted = true;
+audio.load();
+audio.play().catch(() => {});
