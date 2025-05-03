@@ -8,12 +8,17 @@
   of the piece.
 */
 
+/* I reset all elements' margin and padding to remove default browser quirks.
+   I use border-box so that padding doesn't break my layouts */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ========== BODY ========== */
+/* I chose a pure black background to create a sense of void and focus.
+     No scrollbars, no distractions just the content I designed. */
 body {
   width: 100%;
   height: 100%;
@@ -21,6 +26,9 @@ body {
   overflow: hidden;
 }
 
+/* ========== FIXED CANVAS ========== */
+/* This is my main visual frame,I want the viewer to feel like they’re peeking 
+     into a tightly controlled media player. */
 .fixed-canvas {
   width: 1420px;
   height: 980px;
@@ -31,6 +39,8 @@ body {
   overflow: hidden;
 }
 
+/* ========== BACKGROUND IMAGE ========== */
+/* The background image acts as both scenery and a reactive layer. */
 .bg-img {
   width: 1420px;
   height: 980px;
@@ -42,6 +52,19 @@ body {
   transition: filter 0.3s ease;
 }
 
+/* The background image acts as both scenery and a reactive layer.
+   I added a transition on the blur filter. The scroll-linked blur creates an interactive layer that reflects
+   the viewer’s motion, like they’re physically trying to adjust their vision.
+
+   Conceptually, I want this to feel like an experimental film moment:
+   as the user scrolls, they “squint” through distortion to make sense
+   of the media player — an act of effort and focus. It’s about discomfort,
+   tension, and immersion, not just clarity. */
+
+/* ========== BACKGROUND WRAPPER & GRADIENT ========== */
+/* I wrapped the background so I could overlay a gradient, didn’t want
+     hard visual edges. The black gradient on both sides subtly frames
+     the mouth video, directing focus inward like a vignette. */
 .bg-wrapper {
   position: absolute;
   width: 1420px;
@@ -66,6 +89,8 @@ body {
   );
 }
 
+/* ========== VIDEO POSITIONING ========== */
+/* I placed the video intentionally off-center to mimic a cinematic crop. */
 .video-wrapper {
   position: absolute;
   top: 165px;
@@ -82,7 +107,9 @@ body {
   display: block;
 }
 
-/* Mute button in controllllllllll*/
+/* ========== MUTE TOGGLE ICON ========== */
+/* I wanted the mute button to feel iconic — like a symbol rather than a tool.
+     Hover effects are subtle to maintain a clean look, but still give a sense of feedback. */
 .mute-toggle {
   position: absolute;
   top: 12px;
@@ -110,6 +137,9 @@ body {
   opacity: 1;
 }
 
+/* ========== VIDEO CONTROLS CONTAINER ========== */
+/* These are my minimal controls — I designed them to blend into the video environment,
+     so they appear only when needed and dont steal attention. */
 .video-controls {
   position: absolute;
   bottom: 100px;
@@ -128,11 +158,15 @@ body {
   transition: opacity 0.4s ease;
 }
 
+/* I added this utility class to hide controls if needed in future UX changes. */
 .video-controls.hide {
   opacity: 0;
   pointer-events: none;
 }
 
+/* ========== PLAY BUTTON ========== */
+/* The play button uses background images — it’s clean, silent, and functional.
+     I avoided text labels to keep everything feeling symbolic and visual. */
 #playBtn {
   width: 40px;
   height: 40px;
@@ -145,13 +179,10 @@ body {
 #playBtn.paused {
   background-image: url("pause.png");
 }
-:fullscreen .video-controls {
-  position: fixed;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
+/* ========== FULLSCREEN BUTTON ========== */
+/* A gentle rectangular button that matches the aesthetic without being too loud.
+     Its hover effect is subtle but satisfying. */
 #fullscreenBtn {
   padding: 10px 14px;
   font-size: 18px;
@@ -165,4 +196,59 @@ body {
 
 #fullscreenBtn:hover {
   background: rgba(255, 255, 255, 0.4);
+}
+
+/* ========== POP-UP OVERLAY ========== */
+/* This overlay was important for me — I needed a moment of pause before the experience.
+     It lets me warn the viewer and *frame the mood*. The dark backdrop ensures
+     total focus on the message. */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+}
+
+/* ========== POP-UP DIALOG BOX ========== */
+/* I designed the popup like a gallery label — simple, neutral, centered.
+     The box casts a faint glow to signal interaction without screaming for attention. */
+.popup-box {
+  background: #111;
+  padding: 28px 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transform: translateY(0);
+}
+
+/* Informational message — short, impactful, and center-aligned for easy reading. */
+.popup-box p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ========== POP-UP BUTTON ========== */
+/* A small white button to continue — intentionally neutral,
+     so it doesn’t overpower the mood of the piece. */
+#enterBtn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#enterBtn:hover {
+  background: #ddd;
 }

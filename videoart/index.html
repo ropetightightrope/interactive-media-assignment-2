@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="reset.css" />
   </head>
+  <!-- I asked my extremely talented creative partner Han to send me some video art that could loop
+ I thought she would have some Blender 3D render files but she made this Cyriak influenced mouth video. -->
+  <!-- I made this piece of mysterious audio with the intention that it would be looping at a different cycle than the video 
+ creating a very endless feel If there was no file size limited I would have made a Shepards Tone simulating forever decending.  -->
   <body>
     <div class="fixed-canvas" id="videoContainer">
       <div class="bg-wrapper" id="bgWrapper">
@@ -17,7 +21,15 @@
           id="bgImage"
         />
       </div>
-
+      <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-box">
+          <p>
+            <strong>Caution:</strong> The volume is loud.<br />
+            Click & scroll to explore
+          </p>
+          <button id="enterBtn">Enter</button>
+        </div>
+      </div>
       <div class="video-wrapper">
         <video id="mouthVideo" src="mouth.mp4" class="mouth-video"></video>
         <audio id="mouthAudio" src="mouth.mp3" loop></audio>
