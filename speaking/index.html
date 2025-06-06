@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    Select Voice:
+    <select id="voiceList"></select>
+    <br /><br />
+    <input id="txtInput" /> <br /><br />
+    <button id="buttonSpeak">Speak!</button>
+    <button id="buttonStop">Stop</button>
+    <hr />
+    <h3>Audio File Pls</h3>
+    <!-- <input type="file" id="audioFileInput" accept="audio/*"> -->
+
+    <audio id="audioFile" src="PKD.mp3" controls></audio>
+
+    <p>Speed: <span id="speed">1.0</span>x</p>
+  </body>
+</html>
